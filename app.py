@@ -9,7 +9,7 @@ from vega_datasets import data as vegadatasets
 csvs = []
 league_names = ['English Premier League','Spain Primera Division','Italian Serie A','German 1. Bundesliga']
 for year in range(18,23):
-  df = pd.read_csv(f"players_{year}.csv", index_col=None, header=0)
+  df = pd.read_csv(f"data/players_{year}.csv", index_col=None, header=0)
   df['Year'] = f'20{year}'
   df = df.loc[df['league_name'].isin(league_names)]
   scaler = MinMaxScaler()
@@ -107,7 +107,7 @@ else:
   ##upper row - MAP 
   # data preprocess - get the lon and lat from csv, join, groupby country then count players by country
   data_copy = source.copy()
-  locations = pd.read_csv("locations.csv", index_col=None, header=0)
+  locations = pd.read_csv("data/locations.csv", index_col=None, header=0)
   locations = locations[['latitude','longitude','country']]
   data_copy.rename(columns = {'nationality':'country'}, inplace = True)
   locations['country'] = locations['country'].str.upper()
