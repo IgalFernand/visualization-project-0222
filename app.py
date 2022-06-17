@@ -167,7 +167,8 @@ else:
       y=alt.Y('mean(pace):Q',scale=alt.Scale(domain=[0.4,1]),title = 'Normalized Mean Pace Score'),
       color=alt.condition(rcl_selector,
                            alt.Color('club_name:N',scale = defult_scale),
-                          alt.value('lightgray'))).properties(title='Mean Dribbling Score Vs. Mean Pace Score By Club')
+                          alt.value('lightgray')),
+    tooltip=[alt.Tooltip('club_name:N', title='Club Name')]).properties(title='Mean Dribbling Score Vs. Mean Pace Score By Club')
 
   rcl_hists = rcl_base.mark_bar(opacity=0.5, thickness=150).encode(
       x=alt.X('age',bin=alt.Bin(step=3),title='Age'),
