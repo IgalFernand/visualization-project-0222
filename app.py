@@ -151,8 +151,7 @@ else:
       
   with right_column:
     interactive_map = rcu_charts + rcu_points
-    #st.write(interactive_map.configure_title(fontSize=22))
-    st.altair_chart(interactive_map.configure_title(fontSize=22), use_container_width=True)
+    st.write(interactive_map.configure_title(fontSize=22))
 
   ##lower row - age histogram linked to performences scatter plot 
   performences_data = source.copy()[['age','Year','club_name','league_name','pace','dribbling']]
