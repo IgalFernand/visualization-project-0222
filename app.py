@@ -27,7 +27,7 @@ data['Year'] = data['Year'].astype('int')
 min_year = 2018
 max_year = 2022
 
-#find best 5 clubs in each league during 2018-2022
+#find best 3 clubs in each league during 2018-2022
 english_data = data.loc[data['league_name'] == 'English Premier League']
 spain_data = data.loc[data['league_name'] == 'Spain Primera Division']
 italian_data = data.loc[data['league_name'] == 'Italian Serie A']
@@ -52,6 +52,13 @@ st.title("FIFA 18-22 Top 4 Leagues Visualization")
 st.markdown("###")
 st.markdown("### Top 3 Clubs in Each League")
 st.markdown("###")
+change_text = """
+<style>
+div.st-cs.st-c5.st-bc.st-ct.st-cu {visibility: hidden;}
+div.st-cs.st-c5.st-bc.st-ct.st-cu:before {content: "Choose a league"; visibility: visible;}
+</style>
+"""
+st.markdown(change_text, unsafe_allow_html=True)
 leagues = st.multiselect('League', league_names,default=[])
 start_year, end_year = st.slider('Year Period', min_value=min_year, max_value=max_year,value=(min_year, max_year))
 st.markdown('###')
