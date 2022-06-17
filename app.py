@@ -24,7 +24,6 @@ data = pd.concat(csvs, axis=0, ignore_index=True)
 #prepare relevant data 
 data = data[['short_name','long_name','age','Year','nationality','club_name','league_name','overall','value_eur','wage_eur','pace','dribbling']]
 data['Year'] = data['Year'].astype('int')
-data['wage_eur'] = data['wage_eur']/1000
 min_year = 2018
 max_year = 2022
 
@@ -84,16 +83,16 @@ else:
 
   lc_points = lc_base.mark_point().encode(
       x= alt.X('wage_eur', axis=alt.Axis(title='Weekly Wage (€)',titleFontSize=16,labelFontSize=12)),
-      y=alt.Y('overall', axis=alt.Axis(title='Normalized Overall Score')),
+      y=alt.Y('overall', axis=alt.Axis(title='Normalized Overall Score',titleFontSize=16,labelFontSize=12)),
       color=alt.condition(brush,alt.Color('club_name:N',scale = defult_scale, title='Club Name'), alt.value('lightgray')),
       tooltip=[alt.Tooltip('short_name:N', title='Name'),alt.Tooltip('Year:Q', title='Year')]).add_selection(brush)
 
   max_len_bar = max([len(source[source['club_name']==club]) for club in source['club_name'].unique()])
   
   lc_bars = lc_base.mark_bar().encode(
-      y=alt.Y('club_name:N',sort='-x', title = 'Club Name'),
+      y=alt.Y('club_name:N',sort='-x', axis=alt.Axis(title='Club Name',titleFontSize=16,labelFontSize=12)),
       color = 'club_name',
-      x=alt.X('count(club_name)',scale=alt.Scale(domain=[0, max_len_bar]), title = 'Player Count')
+      x=alt.X('count(club_name)',scale=alt.Scale(domain=[0, max_len_bar]), axis=alt.Axis(title='Player Count',titleFontSize=16,labelFontSize=12))
   ).transform_filter(brush)
 
   lc_text = lc_bars.mark_text(
@@ -164,17 +163,17 @@ else:
       height=300).add_selection(rcl_selector)
 
   rcl_points = rcl_base.mark_point(filled=True, size=300).encode(
-      x=alt.X('mean(dribbling):Q',scale=alt.Scale(domain=[0.4,1]),title = 'Normalized Mean Dribbling Score'),
-      y=alt.Y('mean(pace):Q',scale=alt.Scale(domain=[0.4,1]),title = 'Normalized Mean Pace Score'),
+      x=alt.X('mean(dribbling):Q',scale=alt.Scale(domain=[0.4,1]),axis=alt.Axis(title='Normalized Mean Dribbling Score',titleFontSize=16,labelFontSize=12)),
+      y=alt.Y('mean(pace):Q',scale=alt.Scale(domain=[0.4,1]),axis=alt.Axis(title='Normalized Mean Pace Score',titleFontSize=16,labelFontSize=12)),
       color=alt.condition(rcl_selector,
                            alt.Color('club_name:N',scale = defult_scale),
                           alt.value('lightgray')),
     tooltip=[alt.Tooltip('club_name:N', title='Club Name')]).properties(title='Mean Dribbling Score Vs. Mean Pace Score By Club')
 
   rcl_hists = rcl_base.mark_bar(opacity=0.5, thickness=150).encode(
-      x=alt.X('age',bin=alt.Bin(step=3),title='Age'),
+      x=alt.X('age',bin=alt.Bin(step=3),axis=alt.Axis(title='Age',titleFontSize=16,labelFontSize=12)),
       y=alt.Y('count()',stack=None, title = 'Player Count'),
-      color=alt.Color('club_name:N',scale=defult_scale, title='Club Name')).transform_filter(rcl_selector
+      color=alt.Color('club_name:N',scale=defult_scale,axis=alt.Axis(title='Club Name',titleFontSize=16,labelFontSize=12))).transform_filter(rcl_selector
       ).properties(title='Players Age Distribution')
 
   with right_column:
