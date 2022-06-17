@@ -132,7 +132,7 @@ else:
   rcu_base = alt.Chart(sourcemap).mark_geoshape(
     fill='darkgray',
     stroke='gray').properties(
-    width=1000,
+    width=980,
     height=500)
 
   projections = ['equirectangular', 'mercator', 'orthographic', 'gnomonic']
@@ -160,7 +160,7 @@ else:
   
   rcl_base = alt.Chart(performences_data).properties(
       width=350,
-      height=300).add_selection(rcl_selector)
+      height=350).add_selection(rcl_selector)
 
   rcl_points = rcl_base.mark_point(filled=True, size=300).encode(
       x=alt.X('mean(dribbling):Q',scale=alt.Scale(domain=[0.4,1]),axis=alt.Axis(title='Normalized Mean Dribbling Score',titleFontSize=16,labelFontSize=12)),
