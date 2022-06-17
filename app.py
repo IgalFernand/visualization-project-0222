@@ -172,9 +172,8 @@ else:
 
   rcl_hists = rcl_base.mark_bar(opacity=0.5, thickness=150).encode(
       x=alt.X('age',bin=alt.Bin(step=3),axis=alt.Axis(title='Age',titleFontSize=16,labelFontSize=12)),
-      y=alt.Y('count()',stack=None, title = 'Player Count'),
-      color=alt.Color('club_name:N',scale=defult_scale,axis=alt.Axis(title='Club Name',titleFontSize=16,labelFontSize=12))).transform_filter(rcl_selector
-      ).properties(title='Players Age Distribution')
+      y=alt.Y('count()',stack=None,axis=alt.Axis(title='Player Count',titleFontSize=16,labelFontSize=12)),
+      color=alt.Color('club_name:N',scale=defult_scale,title='Club Name')).transform_filter(rcl_selector).properties(title='Players Age Distribution')
 
   with right_column:
     interactive_body_chart = rcl_points | rcl_hists
