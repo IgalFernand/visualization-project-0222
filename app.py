@@ -132,8 +132,8 @@ else:
   rcu_base = alt.Chart(sourcemap).mark_geoshape(
     fill='darkgray',
     stroke='gray').properties(
-    width=900,
-    height=450)
+    width=1000,
+    height=500)
 
   projections = ['equirectangular', 'mercator', 'orthographic', 'gnomonic']
   rcu_charts = rcu_base.project('equirectangular')
@@ -177,5 +177,5 @@ else:
 
   with right_column:
     interactive_body_chart = rcl_points | rcl_hists
-    st.write(interactive_body_chart.configure_title(fontSize=22))
+    st.write(interactive_body_chart.configure_title(fontSize=19))
 
