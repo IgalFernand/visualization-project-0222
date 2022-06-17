@@ -67,8 +67,8 @@ else:
   #set consistant colors by league and club
   English_colors = ['#347C17', '#6CC417', '#43BFC7','#93FFE8','#CFECEC']
   Spain_colors = ['#FFE6E8','#FAAFBA','#FF69B4','#C24641','#8C001A']
-  Italian_colors = ['#FFFF33','#F0E68C','#FFD700','#FFA500','#E9AB17']
-  German_colors = ['#006400','#9ACD32','#556B2F','#9ACD32','#228B22']
+  Italian_colors = ['#FFFF33','#FBF6D9','#FFD700','#FFA500','#E9AB17']
+  German_colors = ['#D462FF','#B048B5','#E6E6FA','#614051','#7D0552']
   all_clubs_to_zip = league_clubs['English Premier League']+league_clubs['Spain Primera Division']+league_clubs['Italian Serie A']+league_clubs['German 1. Bundesliga']
   all_colors_to_zip = English_colors+Spain_colors+Italian_colors+German_colors
   colors_dict  = dict(zip(all_clubs_to_zip, all_colors_to_zip))
