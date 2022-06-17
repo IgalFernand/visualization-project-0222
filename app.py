@@ -103,6 +103,8 @@ else:
   left_column.markdown(f'####  Overall Score Vs. Weekly Wage at ({chart_titel})') 
   left_column.altair_chart(lc_points & (lc_bars+ lc_text).properties(height=900), use_container_width=True)
 
+
+
   #right column - map , performance histogram
   ##upper row - MAP 
   # data preprocess - get the lon and lat from csv, join, groupby country then count players by country
@@ -149,7 +151,8 @@ else:
       
   with right_column:
     interactive_map = rcu_charts + rcu_points
-    st.write(interactive_map.configure_title(fontSize=22))
+    #st.write(interactive_map.configure_title(fontSize=22))
+    st.altair_chart(interactive_map.configure_title(fontSize=22), use_container_width=True)
 
   ##lower row - age histogram linked to performences scatter plot 
   performences_data = source.copy()[['age','Year','club_name','league_name','pace','dribbling']]
