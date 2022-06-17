@@ -65,7 +65,7 @@ else:
   selected_league_df = pd.concat([league_df_dict[key] for key in leagues])
   source = selected_league_df[(selected_league_df['Year'] >= start_year) & (selected_league_df['Year'] <= end_year)]
   #set consistant colors by league and club
-  English_colors = ['#CFECEC', '#66CDAA', '#008B8B','#4E8975','#31906E']
+  English_colors = ['#4AA02C', '#254117', '#89C35C','#4C787E','#2C3539']
   Spain_colors = ['#FFC0CB','#FF69B4','	#C71585','#DB7093','#FF1493']
   Italian_colors = ['#FFA500','#FF4500','#FFD700','#D2691E','#8B0000']
   German_colors = ['#006400','#9ACD32','#556B2F','#9ACD32','#228B22']
