@@ -102,7 +102,7 @@ else:
     baseline='middle',dx=3).encode(text='count(club_name):Q')
   
   chart_titel = f'{start_year} - {end_year}' if start_year != end_year else f'{start_year}'
-  left_column.markdown(f'####  Overall Score Vs. Weekly Wage at ({chart_titel})') 
+  left_column.markdown(f'#####  Overall Score Vs. Weekly Wage at ({chart_titel})') 
   left_column.altair_chart(lc_points & (lc_bars+ lc_text).properties(height=900), use_container_width=True)
 
 
@@ -149,11 +149,11 @@ else:
                       legend = alt.Legend(orient = 'bottom-left',fillColor='#0e1117',labelFontSize=14,titleFontSize=16)),
       size=alt.Size('players_num_bucket'),
       tooltip=[alt.Tooltip('country:N', title='Natiounality'),alt.Tooltip('num_players:Q', title='Count')]
-      ).properties(title='Total Number of Players in Each Natiounality')
+      ).properties(title=f'Total Number of Players in Each Natiounality at ({chart_titel})')
       
   with right_column:
     interactive_map = rcu_charts + rcu_points
-    st.write(interactive_map.configure_title(fontSize=22))
+    st.write(interactive_map.configure_title(fontSize=20))
 
   ##lower row - age histogram linked to performences scatter plot 
   performences_data = source.copy()[['age','Year','club_name','league_name','pace','dribbling']]
@@ -173,14 +173,14 @@ else:
       color=alt.condition(rcl_selector,
                            alt.Color('club_name:N',scale = defult_scale),
                           alt.value('lightgray')),
-    tooltip=[alt.Tooltip('club_name:N', title='Club Name')]).properties(title='Mean Pace Score Vs. Mean Dribbling Score By Club')
+    tooltip=[alt.Tooltip('club_name:N', title='Club Name')]).properties(title=f'Mean Pace Score Vs. Mean Dribbling Score By Club at ({chart_titel})')
 
   rcl_hists = rcl_base.mark_bar(opacity=0.5, thickness=150).encode(
       x=alt.X('age',bin=alt.Bin(step=3),axis=alt.Axis(title='Age',titleFontSize=16,labelFontSize=12)),
       y=alt.Y('count()',stack=None,axis=alt.Axis(title='Player Count',titleFontSize=16,labelFontSize=12)),
-      color=alt.Color('club_name:N',scale=defult_scale,title='Club Name')).transform_filter(rcl_selector).properties(title='Players Age Distribution')
+      color=alt.Color('club_name:N',scale=defult_scale,title='Club Name')).transform_filter(rcl_selector).properties(title=f'Players Age Distribution at ({chart_titel})')
 
   with right_column:
     interactive_body_chart = rcl_points | rcl_hists
-    st.write(interactive_body_chart.configure_title(fontSize=19))
+    st.write(interactive_body_chart.configure_title(fontSize=15))
 
