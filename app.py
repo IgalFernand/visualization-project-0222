@@ -52,13 +52,6 @@ st.title("FIFA 18-22 Top 4 Leagues Visualization")
 st.markdown("###")
 st.markdown("### Top 3 Clubs in Each League")
 st.markdown("###")
-change_text = """
-<style>
-div.st-cs.st-c5.st-bc.st-ct.st-cu {visibility: hidden;}
-div.st-cs.st-c5.st-bc.st-ct.st-cu:before {content: "Choose a league"; visibility: visible;}
-</style>
-"""
-st.markdown(change_text, unsafe_allow_html=True)
 leagues = st.multiselect('League', league_names,default=[])
 start_year, end_year = st.slider('Year Period', min_value=min_year, max_value=max_year,value=(min_year, max_year))
 st.markdown('###')
