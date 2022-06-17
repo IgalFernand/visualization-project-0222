@@ -38,7 +38,7 @@ league_clubs = {'English Premier League':[],'Spain Primera Division':[],'Italian
 for key in league_df_dict.keys():
   this_data = league_df_dict[key]
   name = key
-  clubes_name = list(this_data.groupby(['club_name'])['overall'].mean().reset_index().sort_values(by=['overall'],ascending = False)[0:5]['club_name'])
+  clubes_name = list(this_data.groupby(['club_name'])['overall'].mean().reset_index().sort_values(by=['overall'],ascending = False)[0:3]['club_name'])
   league_clubs[name] = clubes_name
 
 for key in league_df_dict.keys():
@@ -65,10 +65,10 @@ else:
   selected_league_df = pd.concat([league_df_dict[key] for key in leagues])
   source = selected_league_df[(selected_league_df['Year'] >= start_year) & (selected_league_df['Year'] <= end_year)]
   #set consistant colors by league and club
-  English_colors = ['#347C17', '#6CC417', '#43BFC7','#93FFE8','#CFECEC']
-  Spain_colors = ['#FFE6E8','#FAAFBA','#FF69B4','#C24641','#8C001A']
-  Italian_colors = ['#FFFF33','#FBF6D9','#FFD700','#FFA500','#E9AB17']
-  German_colors = ['#D462FF','#B048B5','#E6E6FA','#614051','#7D0552']
+  English_colors = ['#6CC417', '#43BFC7','#CFECEC']
+  Spain_colors = ['#FAAFBA','#FF69B4','#8C001A']
+  Italian_colors = ['#FBF6D9','#FFD700','#E9AB17']
+  German_colors = ['#B048B5','#E6E6FA','#7D0552']
   all_clubs_to_zip = league_clubs['English Premier League']+league_clubs['Spain Primera Division']+league_clubs['Italian Serie A']+league_clubs['German 1. Bundesliga']
   all_colors_to_zip = English_colors+Spain_colors+Italian_colors+German_colors
   colors_dict  = dict(zip(all_clubs_to_zip, all_colors_to_zip))
