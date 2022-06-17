@@ -82,7 +82,7 @@ else:
   brush = alt.selection(type='interval')
 
   lc_points = lc_base.mark_point().encode(
-      x= alt.X('wage_eur', axis=alt.Axis(title='Weekly Wage (€)',titleFontSize=16,labelFontSize=12)),
+      x= alt.X('wage_eur', axis=alt.Axis(title='Weekly Wage (€)', scale=alt.Scale(domain=0, 1000),titleFontSize=16,labelFontSize=12)),
       y=alt.Y('overall', axis=alt.Axis(title='Normalized Overall Score')),
       color=alt.condition(brush,alt.Color('club_name:N',scale = defult_scale, title='Club Name'), alt.value('lightgray')),
       tooltip=[alt.Tooltip('short_name:N', title='Name'),alt.Tooltip('Year:Q', title='Year')]).add_selection(brush)
