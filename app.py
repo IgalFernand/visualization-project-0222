@@ -141,7 +141,8 @@ else:
   rcu_points = alt.Chart(source_on_map).mark_circle().encode(
       longitude='longitude:Q',
       latitude='latitude:Q',
-      color=alt.Color('players_num_bucket', scale=alt.Scale(scheme='goldorange'), title ='Number of Players (Bucket)', legend = alt.Legend(orient = 'bottom-left')),
+      color=alt.Color('players_num_bucket', scale=alt.Scale(scheme='goldorange'), title ='Number of Players (Bucket)', 
+                      legend = alt.Legend(orient = 'bottom-left').configure(background='white')),
       size=alt.Size('players_num_bucket'),
       tooltip=[alt.Tooltip('country:N', title='Natiounality'),alt.Tooltip('num_players:Q', title='Count')]
       ).properties(title='Total Number of Players in Each Natiounality')
@@ -160,7 +161,7 @@ else:
   
   rcl_base = alt.Chart(performences_data).properties(
       width=350,
-      height=350).add_selection(rcl_selector)
+      height=330).add_selection(rcl_selector)
 
   rcl_points = rcl_base.mark_point(filled=True, size=300).encode(
       x=alt.X('mean(dribbling):Q',scale=alt.Scale(domain=[0.4,1]),axis=alt.Axis(title='Normalized Mean Dribbling Score',titleFontSize=16,labelFontSize=12)),
