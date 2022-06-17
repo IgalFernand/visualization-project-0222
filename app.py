@@ -66,7 +66,7 @@ else:
   source = selected_league_df[(selected_league_df['Year'] >= start_year) & (selected_league_df['Year'] <= end_year)]
   #set consistant colors by league and club
   English_colors = ['#347C17', '#6CC417', '#43BFC7','#93FFE8','#CFECEC']
-  Spain_colors = ['#FFE6E8','#FAAFBA','#FF69B4','#C24641','#660000']
+  Spain_colors = ['#FFE6E8','#FAAFBA','#FF69B4','#C24641','#8C001A']
   Italian_colors = ['#FFA500','#FF4500','#FFD700','#D2691E','#8B0000']
   German_colors = ['#006400','#9ACD32','#556B2F','#9ACD32','#228B22']
   all_clubs_to_zip = league_clubs['English Premier League']+league_clubs['Spain Primera Division']+league_clubs['Italian Serie A']+league_clubs['German 1. Bundesliga']
