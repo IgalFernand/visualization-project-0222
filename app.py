@@ -85,7 +85,7 @@ else:
       x= alt.X('wage_eur', axis=alt.Axis(title='Weekly Wage (€)')),
       y=alt.Y('overall', axis=alt.Axis(title='Normalized Overall Score')),
       color=alt.condition(brush,alt.Color('club_name:N',scale = defult_scale, title='Club Name'), alt.value('lightgray')),
-      tooltip=[alt.Tooltip('short_name:N', title='Name'),alt.Tooltip('Year:Q', title='Year')]).add_selection(brush).configure_axis(labelFontSize=20, titleFontSize=20)
+      tooltip=[alt.Tooltip('short_name:N', title='Name'),alt.Tooltip('Year:Q', title='Year')]).configure_axis(labelFontSize=20, titleFontSize=20).add_selection(brush)
 
   max_len_bar = max([len(source[source['club_name']==club]) for club in source['club_name'].unique()])
   
