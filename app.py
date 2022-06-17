@@ -48,7 +48,7 @@ for key in league_df_dict.keys():
 
 # creats deshbord + get the input from dashbord
 st.set_page_config(layout="wide")
-st.title("FIFA 18-22 Top 4 Leagues Visualization")
+st.title("FIFA 18-22 Top 44 Leagues Visualization")
 st.markdown("###")
 leagues = st.multiselect('League', league_names,default=[])
 start_year, end_year = st.slider('Year Period', min_value=min_year, max_value=max_year,value=(min_year, max_year))
