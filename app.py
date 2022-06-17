@@ -168,7 +168,7 @@ else:
       height=330).add_selection(rcl_selector)
 
   rcl_points = rcl_base.mark_point(filled=True, size=300).encode(
-      y=alt.Y('mean(dribbling):Q',scale=alt.Scale(domain=[0.4,1]),axis=alt.Axis(title='Normalized Mean Dribbling Score',titleFontSize=16,labelFontSize=12)),
+      y=alt.Y('mean(dribbling):Q',scale=alt.Scale(domain=[0.5,1]),axis=alt.Axis(title='Normalized Mean Dribbling Score',titleFontSize=16,labelFontSize=12)),
       x=alt.X('mean(pace):Q',scale=alt.Scale(domain=[0.5,1]),axis=alt.Axis(title='Normalized Mean Pace Score',titleFontSize=16,labelFontSize=12)),
       color=alt.condition(rcl_selector,
                            alt.Color('club_name:N',scale = defult_scale),
