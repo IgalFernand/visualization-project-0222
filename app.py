@@ -53,7 +53,7 @@ st.markdown("###")
 st.markdown("### Top 3 Clubs in Each League")
 st.markdown("###")
 leagues = st.multiselect('League', league_names,default=[])
-start_year, end_year = st.slider('Year Period', min_value=min_year, max_value=max_year, value=(min_year, max_year)))
+start_year, end_year = st.slider('Year Period', min_value=min_year, max_value=max_year, value=(min_year, max_year))
 st.markdown('###')
 left_column, right_column = st.columns([1,1.5])
 
