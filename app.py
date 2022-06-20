@@ -147,7 +147,7 @@ else:
       latitude='latitude:Q',
       color=alt.Color('players_num_bucket', scale=alt.Scale(scheme='goldorange'), title ='Number of Players', 
                       legend = alt.Legend(orient = 'none',labelFontSize=14,titleFontSize=16,
-                                          legendX=10, legendY=-100, direction='horizontal')),
+                                          legendX=130, legendY=-40, direction='horizontal')),
       size=alt.Size('players_num_bucket'),
       tooltip=[alt.Tooltip('country:N', title='Natiounality'),alt.Tooltip('num_players:Q', title='Count')]
       ).properties(title=f'Total Number of Players in Each Natiounality at ({chart_titel})')
