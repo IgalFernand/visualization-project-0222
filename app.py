@@ -184,18 +184,3 @@ else:
   with right_column:
     interactive_body_chart = rcl_points | rcl_hists
     st.write(interactive_body_chart.configure_title(fontSize=15))
-
-def _max_width_():
-    max_width_str = f"max-width: 2000px;"
-    st.markdown(
-        f"""
-    <style>
-    .reportview-container .main .block-container{{
-        {max_width_str}
-    }}
-    </style>    
-    """,
-        unsafe_allow_html=True,
-    )
-    
-_max_width_()
