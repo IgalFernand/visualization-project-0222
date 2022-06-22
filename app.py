@@ -103,7 +103,7 @@ else:
   
   chart_titel = f'{start_year} - {end_year}' if start_year != end_year else f'{start_year}'
   left_column.markdown(f'#####  Overall Score Vs. Weekly Wage at ({chart_titel})') 
-  left_column.altair_chart(lc_points & (lc_bars+ lc_text).properties(height=900), use_container_width=True)
+  left_column.altair_chart(lc_points & (lc_bars+ lc_text).properties(height=720), use_container_width=True)
 
 
 
@@ -136,8 +136,8 @@ else:
   rcu_base = alt.Chart(sourcemap).mark_geoshape(
     fill='darkgray',
     stroke='gray').properties(
-    width=980,
-    height=500)
+    width=784,
+    height=400)
 
   projections = ['equirectangular', 'mercator', 'orthographic', 'gnomonic']
   rcu_charts = rcu_base.project('equirectangular')
@@ -165,8 +165,8 @@ else:
   rcl_selector = alt.selection_single(empty='all', fields=['club_name'])
   
   rcl_base = alt.Chart(performences_data).properties(
-      width=350,
-      height=330).add_selection(rcl_selector)
+      width=280,
+      height=264).add_selection(rcl_selector)
 
   rcl_points = rcl_base.mark_point(filled=True, size=300).encode(
       y=alt.Y('mean(dribbling):Q',scale=alt.Scale(domain=[0.35,1]),axis=alt.Axis(title='Normalized Mean Dribbling Score',titleFontSize=16,labelFontSize=12)),
